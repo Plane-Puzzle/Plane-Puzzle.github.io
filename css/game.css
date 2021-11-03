@@ -1,0 +1,568 @@
+ @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-ExtraBold.woff2') format('woff2'),
+        url('fonts/Montserrat-ExtraBold.woff') format('woff'),
+        url('fonts/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+  @font-face {
+        font-family: "Montserrat";
+        src:url('fonts/Montserrat-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        }
+
+@font-face{
+
+font-family: 'Montserrat-SemiBold';
+
+src: url('fonts/Montserrat-SemiBold.ttf') format('truetype');
+
+font-weight: normal;
+
+font-style: normal;
+
+}
+a, a:active,a:hover,a:focus {
+  text-decoration:none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+	background-color: #1956BE;
+	margin: 0 auto;
+	-ms-user-select: none;
+-ms-user-select: text;
+-ms-user-select: element;
+	user-select: none;
+	
+	font-family: Montserrat;
+	font-style: normal;
+	overflow: hidden;
+	color:#fff;
+
+		width: 1920px;
+	height: 1080px;
+	
+}
+
+.main {
+	position: absolute;
+}
+
+.interface{
+	position: absolute;
+	width: 1720px;
+	height: 930px;
+	left: 100px;
+	top: 50px;
+}
+.top {
+	position: absolute;
+	width: 1659px;
+	height: 159px;
+	left: 21px;
+	top: 45px;
+}
+.heading {
+	
+	font-style: normal;
+	text-align: center;
+	font-size: 64px;
+	line-height: 80px;
+	font-weight: 800;
+	width:800px;
+	margin:0 auto;
+}
+
+.heading p{
+	line-height: 159px;
+	
+}
+
+.countOfLives{
+	margin-left: 40px;
+	margin-top: 850px;
+}
+.countOfLives img{
+	width: 80px;
+}
+
+#vl {
+    border-left: 10px solid #fff;
+    height: 574px;
+    position: absolute;
+    left: 50%;
+    top: 242px;
+}
+
+#black_box{
+	display:none;
+}
+#black_box div {
+position: absolute;
+width: 533px;
+height: 100px;
+box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.4);
+border-radius: 180px;
+font-family: Montserrat-SemiBold;
+text-align: center;
+font-size: 48px;
+line-height: 100px;
+transition: all 0.5s ease;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+
+80% {
+		transform: translateY(-5px);
+		transform: translateY(-5px);
+	}
+}
+
+#black_box div:hover,#how_much div:hover {
+	cursor:pointer;
+	animation: bounce 0.8s;
+}
+
+#how_much {
+display:none;
+font-family: Montserrat-SemiBold;
+font-size: 64px;
+line-height: 78px;
+text-align: center;
+}
+
+#how_much img{
+	width:320px;
+	position: absolute;
+}
+#how_much div{
+position: absolute;
+top: 747px;
+}
+
+#level_end {
+display:none;
+position: absolute;
+width: 1126px;
+height: 562px;
+left: 297px;
+top: 240px;
+background: #FFFFFF;
+border-radius: 120px;
+z-index: 15;
+font-family: Montserrat-SemiBold;
+font-size: 32px;
+line-height: 34px;
+text-align: center;
+color: #2E2B2B;
+}
+
+#level_end button{
+position: absolute;
+width: 534px;
+height: 100px;
+left: 296px;
+top: 412px;
+background: #1956BE;
+border-radius: 180px;
+font-weight: 700;
+font-size: 48px;
+line-height: 59px;
+transition: all 0.5s ease;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#level_end h1{
+margin-top:70px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 48px;
+line-height: 59px;
+
+color: #1956BE;
+
+}
+
+
+#information {
+	position: absolute;
+	width: 1026px;
+	height: 176px;
+	left: 50px;
+	top: 160px;
+}
+
+#help{
+    width: 750px; height: 390px;
+    border-radius: 120px;
+    border:60px #fff solid;
+    background: #fff;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+    display: none;
+    opacity: 0;
+  text-align: center;
+font-weight: 700;
+font-size: 48px;
+color:#1956BE;
+z-index: 11;
+}
+#clue{
+margin-top:60px;
+font-size: 44px;
+font-family: Montserrat-SemiBold;
+color: #2E2B2B;
+}
+#help button{
+position: absolute;
+width: 534px;
+height: 100px;
+left:108px;
+top:260px;
+background: #1956BE;
+border-radius: 180px;
+font-weight: 700;
+font-size: 48px;
+line-height: 59px;
+transition: all 0.5s ease;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+#overlay {
+    position: fixed;
+    background-color: rgba(25,86,190,0.6);
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    display :none;
+    z-index: 10;
+}
+
+#loser,#pause,#start {
+	display:none;
+	position: absolute;
+	background-image: url(../img/background.png);
+	width: 1920px;
+	height: 1080px;
+	top:0;left:0;
+	text-align: center;
+	line-height: 650px;
+	font-style: normal;
+	font-weight: 800;
+	text-align: center;
+	font-size: 150px;
+	z-index: 10;
+	text-shadow: 0px 0px 80px #1956BE;
+}
+
+#win{
+	display:none;
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	top:0;left:0;
+	text-align: center;
+	font-family: Montserrat-SemiBold;
+	font-style: normal;
+	text-align: center;
+	font-size: 48px;
+	z-index: 100;
+	background-color: #1956BE;
+}
+
+#win h1{
+font-family: Montserrat;
+font-size: 150px;
+}
+#loser button,#pause button,#win button,#start button{
+position: absolute;
+width: 534px;
+height: 100px;
+background: #fff;
+border-radius: 180px;
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 59px;
+color: #1956BE;
+transition: all 0.5s ease;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+#loser a,#win a,#start a{
+position: absolute;
+width: 173px;
+height: 58px;
+left: 873px;
+top: 673px;
+font-family: Montserrat-SemiBold;
+font-size: 48px;
+line-height: 59px;
+transition: all 0.5s ease;
+color:#fff;
+}
+
+#start h1{
+font-family: Montserrat;
+font-style: normal;
+font-weight: 800;
+font-size: 150px;
+line-height: 950px;
+
+color: #FFFFFF;
+}
+
+button{
+ color:#fff;
+}
+button:hover{
+	cursor: pointer;
+}
+
+#rebus{
+	display:none;
+	text-align: center;
+}
+
+#rebus div{
+position: absolute;
+width: 240px;
+height: 200px;
+top: 286px;
+border: 10px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 20px;
+}
+
+#rebus img{
+	position: absolute;
+}
+
+
+#rebus_bu{
+position: absolute;
+width: 201px;
+height: 171px;
+left: 559px !important;
+top: 303px !important;
+font-size: 140px;
+line-height: 171px;
+	border:none !important;
+}
+
+#rebus_kn{
+position: absolute;
+width: 124px !important;
+height: 78px !important;
+left: 1398px !important;
+top: 486px !important;
+font-size: 64px;
+line-height: 78px;
+border:none !important;
+}
+
+#rebus_answer{
+position: absolute;
+width: 1000px;
+height: 171px;
+left: 150px !important;
+top: 303px !important;
+font-size: 140px;
+line-height: 171px;
+border:none !important;
+display:none;
+
+}
+
+#packing{
+	display: none;
+}
+#take_away{
+	display:none;
+}
+
+#level_number{
+position: absolute;
+width: 365px;
+height: 59px;
+left: 1320px;
+top: 871px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 800;
+font-size: 48px;
+line-height: 59px;
+text-align: center;
+color: #FFFFFF;
+}
+
+
+#find_differences{
+	display:none;
+}
+
+#find_differences img{
+	transition: all 0.5s ease;
+	border: none;
+	outline: none;
+}
+
+#the_safest{
+	display:none;
+}
+
+#the_safest img{
+	width: 300px;
+	position: absolute;
+}
+
+#the_safest div{
+position: absolute;
+width: 34px;
+height: 59px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 800;
+font-size: 48px;
+line-height: 59px;
+text-align: center;
+}
+
+#train{
+	left: 436px;
+top: 373px;
+}
+#airplane{
+	left: 1250px;
+top: 373px;
+}
+
+#ship{
+	left: 436px;
+top: 601px;
+}
+
+#car{
+	left: 1250px;
+top: 601px;
+}
+
+#help_me{
+	display:none;
+}
+
+#help_me input{
+position: absolute;
+width: 534px;
+height: 100px;
+left: 500px;
+top: 630px;
+background: #FFFFFF;
+border-radius: 20px;
+font-family: Montserrat-SemiBold;
+font-size: 48px;
+line-height: 100px;
+padding-left: 40px;
+color: #2E2B2B;
+}
+
+#help_me button,#edible_inedible button,#the_safest button{
+	position: absolute;
+width: 140px;
+height: 100px;
+left: 1110px;
+top: 630px;
+background: #1956BE;
+border: 8px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 180px;
+font-weight: 700;
+font-size: 48px;
+line-height: 59px;
+}
+
+#sos{
+position: absolute;
+top: 323px;
+left:417px;
+font-weight: 800;
+font-size: 160px;
+line-height: 195px;
+text-align: center;
+}
+
+#tomatoes {
+	display:none;
+}
+#tomatoes img{
+position: absolute;
+width: 130px;
+height: 130px;
+}
+
+#countOfTomatoes{
+
+	position: absolute;
+	width: 272px;
+	height: 488px;
+	left: 724px;
+	top: 271px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 400px;
+	line-height: 488px;
+	opacity:0.5;
+	z-index:-2;
+}
+
+@keyframes fall{
+  0%  { top: -200px; }
+  100% { top: 1080px; }
+
+}
+
+.tomato_animation{
+	animation: fall 2s linear infinite;
+	top:-200px;
+}
+
+#edible_inedible{display:none;}
+#edible_inedible div{
+	border-radius: 50%;
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	border: 8px solid rgba(255,255,255,0.5);
+	transition: all 0.3s ease;
+	
+}
+
+#edible_inedible div:hover,#edible_inedible div img:hover{cursor:pointer;}
+
+#edible_inedible div img{
+margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+	}
+
+.chosen{
+	border: 8px solid rgba(255,255,255,1) !important;
+
+}

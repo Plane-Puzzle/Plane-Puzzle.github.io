@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/game.css" rel="stylesheet">
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+<script src="js/game.js"></script>
+<script src="js/confetti.js"></script>
+<title>Plane Puzzle</title>
+</head>
+<body>
+   <div class="main">
+      <div class="interface">
+         <div class="top">
+            <a class="exit" href="" style="float: left; margin-top:30px;">
+            <img src="img/exit.png" style= "width: 100px;" alt="Пауза"></a>
+            <a class='help_link' href="" style="float:right;"><img src="img/help.png" style="width: 130px;" alt="Помощь"></a>
+            <div class="heading"></div>
+         </div>
+         <div class="level">
+            <div id="level_end">
+               <h1>Уровень пройден!</h1>
+               <div id="information"></div>
+               <button onclick="next_level()">Продолжить</button>
+            </div>
+            <div id="packing">
+               <img id="suitcase" src="img/suitcase.svg" style="position: absolute;width: 350px;left: 685px;top: 465px;" alt="Чемодан">
+               <img class="things right" src="img/shirt.svg" style="position: absolute;width: 200px;left: 322px;top: 551px;transform: rotate(-45deg);" alt="Футболка">
+               <img class="things wrong" src="img/weight.svg" style="position: absolute;width: 170px;left: 485px;top: 320px;" alt="Гиря">
+               <img class="things right" src="img/toothbrush.svg" style="position: absolute;width: 170px;left: 750px;top: 280px;transform: rotate(-15deg);" alt="Зубная щётка">
+               <img class="things right" src="img/comb.svg" style="position: absolute;width: 150px;left: 1100px;top: 335px;transform: rotate(30deg);" alt="Расчёска">
+               <img class="things right" src="img/sock.svg" style="position: absolute;width: 130px;left: 1200px;top: 574px;transform: rotate(45deg);" alt="Носок">
+            </div>
+            <div id="black_box">
+               <div class="right" style="background: #FF960A;margin-left: 317px;margin-top: 405px;" onclick="button(this)">Оранжевый
+               </div>
+               <div class="wrong" style="background: #007BDA;margin-left: 317px;margin-top: 555px;" onclick="button(this)">Синий
+               </div>
+               <div class="wrong" style="background: #2E2B2B;margin-left: 870px;margin-top: 405px;" onclick="button(this)">Черный
+               </div>
+               <div class="wrong" style="background: #fff; color:#2E2B2B;margin-left: 870px;margin-top: 555px;" onclick="button(this)">Белый
+               </div>
+            </div>
+            <div id="the_safest">
+               <img class="safest" src="img/train.svg" style="left: 505px;top: 245px;" alt="Поезд">
+               <div id="train"></div>
+               <img class="safest" src="img/airplane.svg" style="left: 910px;top: 305px;" alt="Самолёт">
+               <div id="airplane"></div>
+               <img class="safest" src="img/ship.svg" style="left: 505px;top: 554px;" alt="Корабль">
+               <div id="ship"></div>
+               <img class="safest" src="img/car.svg" style="left: 910px;top: 554px;" alt="Автомобиль">
+               <div id="car"></div>
+               <img style="position: absolute;width: 80.52px;height: 80.52px;left: 730px;top: 739px;transform: matrix(-0.71, -0.71, 0.71, -0.71, 0, 0);" src="img/restart.svg" onclick="reset_safest();" alt="Рестарт">
+               <button style="left: 857px;top: 729px;" onclick="safest_check();">ОК</button>
+            </div>
+            <div id="how_much">
+               <img src="img/airplane.svg" style="left: 347px;
+                  top: 280px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 347px;
+                  top: 280px; " alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 347px;
+                  top: 521px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 347px;
+                  top: 521px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 700px;
+                  top: 280px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 700px;
+                  top: 280px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 700px;
+                  top: 521px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 1052px;
+                  top: 280px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 1052px;
+                  top: 280px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 1052px;
+                  top: 521px;" alt="Самолёт">
+               <img src="img/airplane.svg" style="left: 1052px;
+                  top: 521px;" alt="Самолёт">
+               <div class="wrong" onclick="button(this)" style="left: 555px;">2</div>
+               <div class="wrong" onclick="button(this)" style="left: 654px;">4</div>
+               <div class="wrong" onclick="button(this)" style="left: 759px;">6</div>
+               <div class="wrong" onclick="button(this)" style="left: 861px;">10</div>
+               <div class="right" onclick="check_airplanes(this)" style="left: 990px;">11</div>
+               <div class="wrong" onclick="button(this)" style="left: 1100px;">12</div>
+            </div>
+            <div id="tomatoes">
+               <img class="tomato_animation" src="img/tomato.svg" onclick="count_tomatoes(this);" style="left: 393px; animation-delay: 5s;animation-duration: 1.7s;"  alt="Помидор">
+               <img class="tomato_animation" src="img/tomato.svg" onclick="count_tomatoes(this);" style="left: 650px; animation-delay: 2s;" alt="Помидор">
+               <img class="tomato_animation" src="img/tomato.svg" onclick="count_tomatoes(this);" style="left: 895px; animation-delay: 3s;animation-duration: 1.6s;" alt="Помидор">
+               <img src="img/tomato.svg" onclick="count_tomatoes(this);" style="left: 1125px; top: 61px;" alt="Помидор">
+               <img class="tomato_animation" src="img/tomato.svg" onclick="count_tomatoes(this);" style="left: 1280px;" alt="Помидор">
+               <div id="countOfTomatoes">0</div>
+            </div>
+            <div id="help_me">
+               <p id="sos">. . . _ _ _ . . .</p>
+               <input type="text" placeholder="Введите ответ" required id="text" autofocus />
+               <button onclick="check_help(document.getElementById('text').value);">ОК</button>
+            </div>
+            <div id="take_away">
+               <img src="img/pilot.svg" style="position: absolute;height: 750px;left: 711px;top: 180px;" alt="Пилот">
+               <img id="beard" src="img/beard.svg" style="position:absolute; width:104px;height:94px;left:806px;top:290px;" alt="Борода">
+            </div>
+            <div id="find_differences">
+               <div id="vl"></div>
+               <img src="img/plate.svg" style="position: absolute;width: 400px;left: 253px;top: 319px;" alt="Тарелка">
+               <img src="img/orange.svg" style="position: absolute;width: 150px;left: 378px;top: 368px;z-index: 1;" alt="Апельсин">
+               <img src="img/pear.svg" style="position: absolute;width: 200px;left:297px;top:415px;transform: rotate(-15deg);z-index: 2;" alt="Груша">
+               <div id="first">
+                  <img class="different" src="img/flatware.svg" style="position: absolute;height: 350px;left: 690px;top: 344px;" alt="Столовый прибор">
+                  <img class="different" src="img/watermelon.svg" style="position:absolute;width: 320px;left: 315px;top: 215px;" alt="Арбуз">
+                  <img class="different" src="img/apple.svg" style="position: absolute;width: 170px;left:423px;top:410px;transform: rotate(15deg);z-index: 3;" usemap="#apple" alt="Яблоко">
+                  <img class="different" src="img/banana.svg" style="position: absolute;width:250px;left:302px;top:450px;transform: rotate(15deg);z-index: 4;" usemap="#banana" alt="Банан">
+                  <img class="different" src="img/strawberry.svg" style="position: absolute;width: 150px;left:453px;top:521px;z-index: 5;" usemap="#strawberry" alt="Клубника">
+               </div>
+               <img src="img/plate.svg" style="position: absolute;width: 400px;left: 938px;top: 319px;" alt="Тарелка">
+               <img src="img/orange.svg" style="position: absolute;width: 150px;left: 1063px;top: 368px;z-index: 1;" alt="Апельсин">
+               <img src="img/pear.svg" style="position: absolute;width: 200px;left:982px;top:415px;transform: rotate(-15deg);z-index: 2;" alt="Груша">
+               <div id="second">
+                  <img class="different" src="img/flatware_h.svg" style="position: absolute;height: 350px;left: 1352px;top: 344px;" alt="Столовый прибор">
+                  <img class="different" src="img/watermelon_h.svg" style="position:absolute;width: 320px;left: 1000px;top: 215px;" alt="Арбуз">
+                  <img class="different" src="img/apple_h.svg" style="position: absolute;width: 170px;left:1108.1px;top:410px;transform: rotate(15deg);z-index: 3;" usemap="#apple" alt="Яблоко">
+                  <img class="different" src="img/banana_h.svg" style="position: absolute;width:250px;left:987px;top:450px;transform: rotate(15deg);z-index: 4;" usemap="#banana" alt="Банан">
+                  <img class="different" src="img/strawberry_h.svg" style="position: absolute;width: 150px;left:1138px;top:521px;z-index: 5;" usemap="#strawberry" alt="Клубника">
+               </div>
+               <map name="strawberry">
+                  <area shape="rectangle" coords="0,0, 74,87">
+                  <area shape="rectangle" coords="0,75, 150,150">
+               </map>
+               <map name="apple">
+                  <area shape="rectangle" coords="0,0,65,67">
+                  <area shape="rectangle" coords="130,0,170,67">
+                  <area shape="rectangle" coords="0,35,170,170">
+               </map>
+               <map name='banana'>
+                  <area shape="circle" coords="110,0,105">
+                  <area shape="rectangle" coords="0,200,250,250">
+                  <area shape="rectangle" coords="0,150,30,250">
+               </map>
+            </div>
+            <div id="rebus">
+               <img src="img/comma.svg" class="hiding" style="height: 50px;left: 401px;top: 260px;" alt="Запятая">
+               <img src="img/comma.svg" class="hiding" style="height: 50px;left: 435px;top: 260px;" alt="Запятая">
+               <img src="img/comma.svg" class="hiding" style="height: 50px;left: 469px;top: 260px;" alt="Запятая">
+               <img src="img/comma.svg" class="hiding" style="height: 50px;left:103px;top:460px;transform: matrix(1, 0, 0, -1, 0, 0);" alt="Запятая">
+               <img src="img/plus.svg" style="width: 80px;left: 434px;top: 346px;" alt="Плюс" class="hiding">
+               <div id="rebus_bu">БУ</div>
+               <img src="img/plus.svg" style="width: 80px;left: 805px;top: 346px;" alt="Плюс" class="hiding">
+               <img src="img/comma.svg" style="height: 50px;left: 1182px;top: 260px;" alt="Запятая" class="hiding">
+               <img src="img/plus.svg" style="width: 80px;left: 1215px;top: 346px;" alt="Плюс" class="hiding">
+               <div id="rebus_kn">к=н</div>
+               <div class="drop_to_me" style="left: 149px;"></div>
+               <div class="drop_to_me" style="left: 930px;"></div>
+               <div class="drop_to_me" style="left: 1340px;"></div>
+               <img class="drag_me" id="bone" src="img/bone.svg" style="width: 175px;left: 60.12px;top: 680px;"  alt="Кость">
+               <img class="drag_me" src="img/ace.svg" style="width: 130px;left: 300px;top: 550px;" alt="Карта">
+               <img class="drag_me" src="img/ball.svg" style="width: 120px;left: 485px;top: 683px;" alt="Мяч">
+               <img class="drag_me" src="img/sock.svg" style="height: 140px;left: 678.06px;top: 526px;" alt="Носок">
+               <img class="drag_me" id="helm" src="img/helm.svg" style="height: 150px;left: 820px;top: 695px;" alt="Штурвал">
+               <img class="drag_me" src="img/pear.svg" style="height: 130px;left: 1000px;top: 556px;" alt="Груша">
+               <img class="drag_me" src="img/watermelon_h.svg" style="height: 140px;left: 1107px;top: 681px;" alt="Арбуз">
+               <img class="drag_me" src="img/ice_cream.svg" style="height: 130px;left: 1350px;top: 575px;" alt="Мороженое">
+               <img class="drag_me" id="ribbon" src="img/ribbon.svg" style="width: 190px;left: 1420px;top: 720px;" alt="Лента">
+               <div id="rebus_answer">ТУРБУЛЕНТНОСТЬ</div>
+            </div>
+            <div id="edible_inedible">
+               <div class="edible" style="left: 392px;top: 242px;"><img src="img/ice_cream.svg" style="transform: rotate(30deg); height:135px;" alt="Мороженое"></div>
+               <div style="left: 637px;top: 242px;"><img src="img/ball.svg" style="height:115px;" alt="Мяч"></div>
+               <div class="edible" style="left: 882px;top: 242px;"><img src="img/pear.svg" style="height:120px;" alt="Груша"></div>
+               <div class="edible" style="left: 1127px;top: 242px;"><img src="img/airplane.svg" style="width:150px;top:5%; " alt="Самолёт"></div>
+               <div style="left: 392px;top: 487px;"><img src="img/comb.svg" style="height:120px;transform: rotate(90deg);" alt="Расчёска"></div>
+               <div class="edible" style="left: 637px;top: 487px;"><img src="img/tomato.svg" style="height:120px;" alt="Помидор"></div>
+               <div style="left: 882px;top: 487px;"><img src="img/ace.svg" style="height:120px;" alt="Карта"></div>
+               <div class="edible" style="left: 1127px;top: 487px;"><img src="img/pizza.svg" style="height:120px;left:-20px;" alt="Пицца"></div>
+               <img style="position: absolute;width: 80.52px;height: 80.52px;left: 728px;top: 738px;transform: matrix(-0.71, -0.71, 0.71, -0.71, 0, 0);" src="img/restart.svg" onclick="reset();" alt="Рестарт"><button style="left: 860px;
+                  top: 732px;" onclick="check_edible();">ОК</button>
+            </div>
+         </div>
+         <div id="level_number"></div>
+         <div class="countOfLives">
+            <img id="live1" src="" alt="Попытка">
+            <img id="live2" src="" alt="Попытка">
+            <img id="live3" src="" alt="Попытка">
+         </div>
+      </div>
+      <div id="loser">КОНЕЦ ИГРЫ
+         <button onclick="continue_game();" style="left: 693px;
+            top: 540px;">Продолжить</button>
+         <a href="" onclick="window.close();">Выйти</a>
+      </div>
+      <div id="pause">ПАУЗА
+         <button onclick="$('#pause').fadeOut(350);" style="left: 693px;
+            top: 479px;">Продолжить</button>
+         <button onclick="$('#pause').fadeOut(350);start();" style="left: 693px;
+            top: 611px;">Новая игра</button>
+         <button onclick="window.close();" style="left: 693px;
+            top: 743px;">Выйти</button>
+      </div>
+      <div id="overlay"></div>
+      <div id="help">
+         <p>Подсказка</p>
+         <div id="clue"></div>
+         <button id="help__close">ОК</button>
+      </div>
+   </div>
+   <div id="win">
+   	<canvas id="confeti" class="active" width="1920px" height="1080px"></canvas>
+   	<div style="position: absolute;width: 601px;height: 59px;left: 659px;top: 256px;">Вы прошли все уровни</div>
+   	<div style="position: absolute;width: 1331px;height: 183px;left: 294px;top: 373px;"><h1>ПОЗДРАВЛЯЕМ!</h1></div>
+   	 <button onclick="start();" style="left: 693px;top: 634px;">Новая игра</button>
+         <a href="" onclick="window.close();" style="left: 873px;top: 767px;">Выйти</a>
+   </div>
+</body>
+</html>
